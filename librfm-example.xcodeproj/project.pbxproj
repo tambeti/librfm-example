@@ -26,8 +26,6 @@
 /* Begin PBXFileReference section */
 		C5847BAE1BEC936100654373 /* librfm-example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "librfm-example"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5847BB11BEC936100654373 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		C5847BB81BEC941000654373 /* librfm.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librfm.0.dylib; path = ../../build/lib/librfm.0.dylib; sourceTree = "<group>"; };
-		C5847BBB1BEC94D200654373 /* librfm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librfm.a; path = ../../build/lib/librfm.a; sourceTree = "<group>"; };
 		C5847BBD1BECE45700654373 /* media-reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "media-reader.cpp"; sourceTree = "<group>"; };
 		C5847BBE1BECE45700654373 /* media-reader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "media-reader.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,8 +44,6 @@
 		C5847BA51BEC936100654373 = {
 			isa = PBXGroup;
 			children = (
-				C5847BBB1BEC94D200654373 /* librfm.a */,
-				C5847BB81BEC941000654373 /* librfm.0.dylib */,
 				C5847BB01BEC936100654373 /* librfm-example */,
 				C5847BAF1BEC936100654373 /* Products */,
 			);
