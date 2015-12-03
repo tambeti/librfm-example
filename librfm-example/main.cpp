@@ -238,14 +238,15 @@ static void UploadMedias(rfm::Model* model) {
     std::condition_variable cond;
 
     auto token = uploader->AddSessionListener([&](rfm::uploader::Session session) {
-        rfm::LOGD("Session changed, %d/%d ", session.completed, session.total);
-        if (session.completed == local_handles.size()) {
+        rfm::LOGD("Session changed, %d/%d ", session.completed_medias, session.total_medias);
+        if (session.completed_medias == local_handles.size()) {
             std::unique_lock<std::mutex> lck(mutex);
             cond.notify_all();
         }
     });
   
     uploader->Add(local_handles);
+    uploader->Start();
     
     std::unique_lock<std::mutex> lck(mutex);
     cond.wait(lck);
