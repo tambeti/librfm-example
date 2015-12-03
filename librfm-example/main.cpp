@@ -183,9 +183,18 @@ static bool AddLocalMedias(rfm::Model* model,
         std::unique_lock<std::mutex> lck(mutex);
         cond.notify_all();
     };
-    
-    // Again, wait for the operation to finish
+
+    // While it's possible to merge all medias at once, it might
+    // consume quite a lot of memory to keep them all in memory,
+    // so the merging should generally be done in batches.
     model->MergeLocalMedias(medias, cb);
+
+    // In some cases it's useful for the Model to know when the
+    // initial sync is done, sending an empty collection notifies
+    // about that.
+    model->MergeLocalMedias(std::vector<rfm::Media>(), nullptr);
+
+    // Again, wait for the operation to finish
     std::unique_lock<std::mutex> lck(mutex);
     cond.wait(lck);
     
