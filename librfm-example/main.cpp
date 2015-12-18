@@ -179,7 +179,7 @@ static bool AddLocalMedias(rfm::Model* model,
     std::mutex mutex;
     std::condition_variable cond;
 
-    auto cb = [&](leveldb::Status s) {
+    auto cb = [&](leveldb::Status s, rfm::SyncStats stats) {
         std::unique_lock<std::mutex> lck(mutex);
         cond.notify_all();
     };
@@ -255,7 +255,7 @@ static void UploadMedias(rfm::Model* model) {
     });
   
     uploader->Add(local_handles);
-    uploader->Start();
+    uploader->Started(true);
     
     std::unique_lock<std::mutex> lck(mutex);
     cond.wait(lck);
